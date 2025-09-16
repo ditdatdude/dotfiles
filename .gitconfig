@@ -1,0 +1,7 @@
+[user]
+	name = Charles Payne
+	email = ditdatdude@gmail.com
+[color]
+	ui = auto
+[core]
+	editor = emacs -q --load /home/crp/.emacs/init.el
