@@ -47,8 +47,9 @@ alias l='ls -CF'
 alias md='mkdir'
 alias pico='nano'
 alias cls='clear'
-alias winchip='/mnt/c/Users/chip/Dropbox/dotfiles'
+alias winchip='cd /mnt/c/Users/chip/Dropbox/dotfiles'
 
 # Load clipboard functions
 export DOTFILES_DIR="/mnt/c/Users/chip/Dropbox/dotfiles"
 source "$DOTFILES_DIR/shell/clipboard-simple.sh"
+alias save-dotfiles="cd ~/dotfiles && git add -A && git commit -m \"Save dotfiles: \$(date)\" && git push"

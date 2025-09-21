@@ -1,0 +1,58 @@
+;; Basic Emacs Configuration
+;; Save as: /mnt/c/Users/chip/Dropbox/dotfiles/emacs/init.el
+
+;; Package management
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
+
+;; Install and configure no-littering
+(unless (package-installed-p 'no-littering)
+  (package-refresh-contents)
+  (package-install 'no-littering))
+
+(require 'no-littering)
+
+;; Basic UI improvements
+(setq inhibit-startup-message t)
+(when (display-graphic-p)
+  (menu-bar-mode -1)
+  (tool-bar-mode -1)
+  (scroll-bar-mode -1))
+
+;; Line numbers and basic editing
+(global-display-line-numbers-mode t)
+(show-paren-mode t)
+(setq-default indent-tabs-mode nil
+              tab-width 4)
+
+;; Org-mode configuration
+(require 'org)
+(setq org-directory "/mnt/c/Users/chip/Dropbox/org")
+(setq org-default-notes-file (concat org-directory "/notes/daily.org"))
+
+;; Org-mode keybindings
+(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c c") 'org-capture)
+(global-set-key (kbd "C-c l") 'org-store-link)
+
+;; Basic org-mode settings
+(setq org-log-done t
+      org-startup-indented t)
+
+;; Load platform-specific config if it exists
+(let ((platform-config "/mnt/c/Users/chip/Dropbox/dotfiles/emacs/platform/wsl.el"))
+  (when (file-exists-p platform-config)
+    (load platform-config)))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages nil))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
