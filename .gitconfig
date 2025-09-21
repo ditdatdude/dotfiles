@@ -1,9 +1,0 @@
-[user]
-	name = Charles Payne
-	email = ditdatdude@gmail.com
-[color]
-	ui = auto
-[core]
-	editor = emacs -q --load /home/crp/.emacs/init.el
-# Test comment from dotfiles
-# Updated from dotfiles repo
